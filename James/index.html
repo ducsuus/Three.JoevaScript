@@ -1,37 +1,42 @@
-
-<html>
-
+<!DOCTYPE html>
+<html> 
     <head>
-        <title>James testing WebGl and THREE.js</title>
+        <title>Three.js test</title> 
         <style>
-			html, body {
-				width: 100%;
-				height: 100%;
-			}
-
-			body {
-				background-color: #ffffff;
-				margin: 0;
-                                margin: 0; 
-                                padding: 0; 
-                                
-				overflow: hidden;
-				font-family: arial;
-			}
-
-		</style>
+            body{
+                margin: 0;
+                }
+            canvas{
+                width: 100%;
+                height: 100%;
+                }
+        </style>
     </head>
-	<body>
-		<script src="http://threejs.org/build/three.min.js"></script>
-		<script src="js/code.js"></script>
-                <div id="blocker">
-
-			<div id="instructions">
-				<span style="font-size:40px">Click to play</span>
-				<br />
-				(W, A, S, D = Move, MOUSE = Look around)
-			</div>
-
-		</div>
-	</body>
-</html>
+    <body>
+        <script src="js/three.min.js"></script>   
+        <script>
+            var scene = new THREE.Scene(); // Creates a new scene
+            
+            //Camera
+            var camera = new THREE.PerspectiveCamera( //Uses the perspective  camera
+                75, //Field of view                     One of several in hree.js
+                window.innerWidth / window.innerHeight, //Aspect ratio
+                0.1, //Near clipping plane
+                1000 //Far clipping plane
+            );
+            
+            //Renderer
+            var renderer = new THREE.WebGLRenderer();
+            //Sets the size of the window to be rendered
+            renderer.setSize(
+                window.innerWidth, 
+                window.innerHeight 
+            ); 
+            
+            //Adds the renderer element to the html document 
+            document.body.appendChild(
+                renderer.domElement
+            );
+        </script>
+    </body>
+</html>  
